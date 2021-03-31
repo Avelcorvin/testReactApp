@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+.ac-pushButton{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 10px 5px 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: white;
+  color: #00599E;
+  border: 1px solid #6290FF;
+}
