@@ -4,15 +4,8 @@ import React, { EventHandler, useEffect, useState } from 'react'
 
 export const TwilloApp = ()=>{
     const tokenAdres = 'https://a168306c15b3.ngrok.io/voice/token'
-    let [token,setToken] = useState('')
     const device = new Device();
-    const state ={
-        activeConnection : device.activeConnection()
-    }
-  
-    const params={
-        debug: true,
-    }
+    console.log(device)
     
     const callToNodeJS = ()=>{
         const connection = device.connect({
@@ -23,7 +16,11 @@ export const TwilloApp = ()=>{
 
     const pressButton = (EE:any|EventListenerObject)=>{
         const value = EE.target.innerHTML;
-        state.activeConnection?.sendDigits(value)
+        console.log(value)
+        const activeConnection =device.activeConnection();
+        console.log(activeConnection)
+
+        activeConnection?.sendDigits(value)
     
     }
 
@@ -31,8 +28,7 @@ export const TwilloApp = ()=>{
         try {
             const response = await fetch(tokenAdres);
             const token = await response.text()
-            device.setup(token,params);
-            state.activeConnection = device.activeConnection();
+            device.setup(token,{debug: true});
         } catch (error) {
            console.log(error)
         }
@@ -40,12 +36,13 @@ export const TwilloApp = ()=>{
 
     window.addEventListener('keydown',(eo)=>{
         if(Number(eo.key)){
-            state.activeConnection?.sendDigits(eo.key)
+            const activeConnection = device.activeConnection();
+            activeConnection?.sendDigits(eo.key)
         }
     })
     useEffect( ()=>{
         getToken();
-    },[])
+    },[getToken])
 
 
     return(
