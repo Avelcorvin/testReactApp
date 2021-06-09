@@ -54,3 +54,10 @@
   color: #00599E;
   border: 1px solid #6290FF;
 }
+.number{
+  width: 100px;
+  height: 100px;
+}
+.number:hover{
+  cursor: pointer;
+}
