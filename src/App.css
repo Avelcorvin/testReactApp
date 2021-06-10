@@ -57,7 +57,33 @@
 .number{
   width: 100px;
   height: 100px;
+  background-color: #ebebf1;
+  border-radius: 6px;
 }
 .number:hover{
   cursor: pointer;
+}
+.twillo-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.twillo-ontainer_button{
+  background: #e8dfdf;
+  padding: 12px 12px;
+  margin: 20px;
+}
+.twillo-ontainer_button:hover{
+  cursor: pointer;
+}
+.twillo-container_inputnumber{
+  background: #e8dfdf;
+  border: none;
+  margin-top: 20px;
+  width: 300px;
+  padding: 10px 0px;
+  font-size: 18px;
+  text-align: center;
+  justify-content: center;
 }
